@@ -1,0 +1,55 @@
+
+<center>
+    <h1>main graphic</h1>
+    <canvas id = 'mainCanvas' ></canvas>
+
+    <h1>autocorrelation</h1>
+    <canvas id = 'autocorrelationCanvas' ></canvas>
+
+    <h1>correlation</h1>
+    <canvas id = 'correlationCanvas' ></canvas>
+</center>
+
+<script src="./constants.js"></script>
+<script src="./drawGraphic.js"></script>
+<script src="./generateValues.js"></script>
+<script src="./getWorkTime.js"></script>
+<script src="./computationalValues.js"></script>
+
+<script>
+    //canvas
+    const mainCtx = mainCanvas.getContext('2d')
+    const correlationCtx = correlationCanvas.getContext('2d')
+    const autocorrelationCtx = autocorrelationCanvas.getContext('2d')
+    mainCanvas.width = cnvWidth
+    mainCanvas.height = cnvHeight
+    correlationCanvas.width = cnvWidth
+    correlationCanvas.height = cnvHeight * 2
+    autocorrelationCanvas.width = cnvWidth
+    autocorrelationCanvas.height = cnvHeight * 2
+
+    //main graphic        
+    const allX = geterateValues(n, N, omega, topA, topFi)
+    const finalDataX = averageOfArrays(allX)
+    const Mx = mathematicalExpectation(finalDataX)
+    const D = dispersion(finalDataX, Mx)
+    
+    drawText(mainCanvas, mainCtx, 1, `Математичне оцінювання = ${Math.floor(Mx*1000)/1000}`)
+    drawText(mainCanvas, mainCtx, 2, `Дисперсія = ${Math.floor(D*1000)/1000}`)
+    drawLine(mainCanvas, mainCtx, Mx, `Математичне оцінювання = ${Math.floor(Mx*1000)/1000}`, 'red', scaleHow)
+    drawEmpty(mainCanvas, mainCtx, scale, N)
+    drawer(mainCanvas, mainCtx, finalDataX, scaleHow)
+
+    //Autocorrelation
+    const ACor = autocorrelation(finalDataX, Mx)
+    drawEmpty(autocorrelationCanvas, autocorrelationCtx, scale * 2, N/2)
+    drawer(autocorrelationCanvas, autocorrelationCtx, ACor, scaleHow)
+
+    //Correlation
+    const allY = geterateValues(n, N, omega, topA, topFi)
+    const finalDataY = averageOfArrays(allY)
+    const My = mathematicalExpectation(finalDataY)
+    const Cor = correlation(finalDataX, finalDataY, Mx, My)
+    drawEmpty(correlationCanvas, correlationCtx, scale * 2, N/2)
+    drawer(correlationCanvas, correlationCtx, Cor, scaleHow)
+</script>
