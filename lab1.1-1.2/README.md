@@ -1,26 +1,33 @@
 # Лабораторні роботи 1.1 - 1.2
 
-**[Результат обчислення x(t)](#correlation)**</br>
-**[Результат обчислення автокореляції](#correlation)**</br>
+**[Результат обчислення x(t)](#result)**</br>
+**[Результат обчислення автокореляції](#autocorrelation)**</br>
 **[Результат обчислення кореляції](#correlation)**</br>
-**[O(n) для кореляції](#correlation)**</br>
-**[O(n) для  x(t)](#correlation)**
+**[O(n) для кореляції](#timeX)**</br>
+**[O(n) для  x(t)](#timeR)**
 
+<a name = "result" ></a>
 ### Результат обчислення x(t)
 
-![result](https://github.com/BohdanShmalko/Intelligent-embedded-systems-LABS/blob/master/lab1.1-1.2/images/mainGraphic.PNG)
+![result](https://github.com/BohdanShmalko/Intelligent-embedded-systems-LABS/blob/main/lab1.1-1.2/images/mainGraphic.PNG?raw=true)
 
+
+<a name = "autocorrelation" ></a>
 ### Результат обчислення автокореляції
 
-![autocorrelation](https://github.com/BohdanShmalko/Intelligent-embedded-systems-LABS/blob/master/lab1.1-1.2/images/autocorrelation.PNG)
+![autocorrelation](https://github.com/BohdanShmalko/Intelligent-embedded-systems-LABS/blob/main/lab1.1-1.2/images/autocorrelation.PNG?raw=true)
 
+
+<a name = "result" ></a>
 ### Результат обчислення кореляції
 
-![correlation](https://github.com/BohdanShmalko/Intelligent-embedded-systems-LABS/blob/master/lab1.1-1.2/images/correlation.PNG)
+![correlation](https://github.com/BohdanShmalko/Intelligent-embedded-systems-LABS/blob/main/lab1.1-1.2/images/correlation.PNG?raw=true)
 
+
+<a name = "timeX" ></a>
 ### O(n) для  x(t)
 
-![timeOX](https://github.com/BohdanShmalko/Intelligent-embedded-systems-LABS/blob/master/lab1.1-1.2/images/timeOX.PNG)
+![timeOX](https://github.com/BohdanShmalko/Intelligent-embedded-systems-LABS/blob/main/lab1.1-1.2/images/timeOX.PNG?raw=true)
 
 n * 10^3 | time (ms)
 --- | --- 
@@ -226,9 +233,10 @@ n * 10^3 | time (ms)
 199| 812
 
 
+<a name = "timeR" ></a>
 ### O(n) для кореляції
 
-![timeOR](https://github.com/BohdanShmalko/Intelligent-embedded-systems-LABS/blob/master/lab1.1-1.2/images/timeOR.PNG)
+![timeOR](https://github.com/BohdanShmalko/Intelligent-embedded-systems-LABS/blob/main/lab1.1-1.2/images/timeOR.PNG?raw=true)
 
 n * 10^3 | time (ms)
 --- | --- 
