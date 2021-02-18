@@ -3,8 +3,8 @@
 **[Результат обчислення x(t)](#result)**</br>
 **[Результат обчислення автокореляції](#autocorrelation)**</br>
 **[Результат обчислення кореляції](#correlation)**</br>
-**[O(n) для кореляції](#timeX)**</br>
-**[O(n) для  x(t)](#timeR)**
+**[O(n) для  x(t)](#timeX)**</br>
+**[O(n) для кореляції](#timeR)**
 
 <a name = "result" ></a>
 ### Результат обчислення x(t)
@@ -18,7 +18,7 @@
 ![autocorrelation](https://github.com/BohdanShmalko/Intelligent-embedded-systems-LABS/blob/main/lab1.1-1.2/images/autocorrelation.PNG?raw=true)
 
 
-<a name = "result" ></a>
+<a name = "correlation" ></a>
 ### Результат обчислення кореляції
 
 ![correlation](https://github.com/BohdanShmalko/Intelligent-embedded-systems-LABS/blob/main/lab1.1-1.2/images/correlation.PNG?raw=true)
