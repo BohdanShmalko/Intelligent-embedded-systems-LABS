@@ -3,7 +3,7 @@ const geterateValues = (n, N, omega, topA, topFi) => {
     let currentOmega, A, Fi
     for(let i = 0; i < n; i++){
         allX[i] = []
-        currentOmega = omega/n * i
+        currentOmega = omega/n * (i + 1)
         A = Math.floor(Math.random() * Math.floor(topA))
         Fi = Math.floor(Math.random() * Math.floor(topFi))
             
