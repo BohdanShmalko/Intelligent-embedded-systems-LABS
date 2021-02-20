@@ -11,7 +11,7 @@ const dispersion = (arr, Mx) => {
     return sum / (arr.length - 1)
 }
 
-//автокореляції чи кореляція в залежності від кількості переданих параметрів
+//автокореляція чи кореляція в залежності від кількості переданих параметрів
 const correlation = (arrX, Mx, arrY = null, My = null) => {
     if(!arrY && !My){
         arrY = arrX
