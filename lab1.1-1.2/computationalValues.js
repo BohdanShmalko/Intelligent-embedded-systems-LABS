@@ -11,22 +11,12 @@ const dispersion = (arr, Mx) => {
     return sum / (arr.length - 1)
 }
 
-const autocorrelation = (arr, Mx) => {
-    if(!Mx) Mx = mathematicalExpectation(arr)
-    let sum
-    const result = []
-    for(let i = 0; i < arr.length/2; i++){
-        sum = 0
-        for(let j = 0; j < arr.length/2; j++){
-            sum += (arr[i] - Mx)*(arr[i+j] - Mx)
-            
-        }
-        result.push(sum / (arr.length/2 - 1))
+//автокореляції чи кореляція в залежності від кількості переданих параметрів
+const correlation = (arrX, Mx, arrY = null, My = null) => {
+    if(!arrY && !My){
+        arrY = arrX
+        My = Mx
     }
-    return result
-}
-
-const correlation = (arrX, arrY, Mx, My) => {
     if(!Mx) Mx = mathematicalExpectation(arrX)
     if(!My) My = mathematicalExpectation(arrY)
     let sum

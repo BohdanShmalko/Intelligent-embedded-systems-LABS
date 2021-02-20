@@ -27,7 +27,7 @@
         const finalDataY = averageOfArrays(allY)
         const My = mathematicalExpectation(finalDataY)
 
-        const Cor = correlation(finalDataX, finalDataY, Mx, My)
+        const Cor = correlation(finalDataX, Mx , finalDataY, My)
     })
     console.log(times);
     drawEmpty(timesCanvas, timesCtx, cnvHeight, start_n, 'n', 'O(n)', false)

@@ -41,7 +41,7 @@
     drawer(mainCanvas, mainCtx, finalDataX, scaleHow)
 
     //Autocorrelation
-    const ACor = autocorrelation(finalDataX, Mx)
+    const ACor = correlation(finalDataX, Mx)
     drawEmpty(autocorrelationCanvas, autocorrelationCtx, scale * 2, N/2)
     drawer(autocorrelationCanvas, autocorrelationCtx, ACor, scaleHow)
 
@@ -49,7 +49,7 @@
     const allY = geterateValues(n, N, omega, topA, topFi)
     const finalDataY = averageOfArrays(allY)
     const My = mathematicalExpectation(finalDataY)
-    const Cor = correlation(finalDataX, finalDataY, Mx, My)
+    const Cor = correlation(finalDataX, Mx , finalDataY, My)
     drawEmpty(correlationCanvas, correlationCtx, scale * 2, N/2)
     drawer(correlationCanvas, correlationCtx, Cor, scaleHow)
 </script>
