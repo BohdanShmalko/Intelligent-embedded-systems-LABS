@@ -1,0 +1,36 @@
+
+<center>
+    <h1>main graphic lab 2.1</h1>
+    <canvas id = 'mainCanvas21' ></canvas>
+    <h1>main graphic lab 2.2</h1>
+    <canvas id = 'mainCanvas22' ></canvas>
+</center>
+
+<script src="../lab1.1-1.2/constants.js"></script>
+<script src="../lab1.1-1.2/drawGraphic.js"></script>
+<script src="../lab1.1-1.2/generateValues.js"></script>
+<script src="./computationalValues.js"></script>
+
+<script>
+    //canvas
+    const mainCtx21 = mainCanvas21.getContext('2d')
+    mainCanvas21.width = cnvWidth
+    mainCanvas21.height = cnvHeight
+
+    const mainCtx22 = mainCanvas22.getContext('2d')
+    mainCanvas22.width = cnvWidth
+    mainCanvas22.height = cnvHeight
+
+    //main graphic        
+    const allX = geterateValues(n, N, omega, topA, topFi)
+    const finalDataX = averageOfArrays(allX)
+
+    const discret = DiscretFourier(finalDataX)
+    const fast = FastFourier(finalDataX)
+    
+    drawEmpty(mainCanvas21, mainCtx21, scale*6, N, 'p', 'F')
+    drawer(mainCanvas21, mainCtx21, discret, scaleHow/6)
+
+    drawEmpty(mainCanvas22, mainCtx22, scale*6, N, 'p', 'F')
+    drawer(mainCanvas22, mainCtx22, fast, scaleHow/6)
+</script>

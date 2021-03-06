@@ -1,0 +1,27 @@
+
+<center>
+    <h1>O(n)DF</h1>
+    <canvas id = 'timesCanvas' ></canvas>
+</center>
+
+<script src="../lab1.1-1.2/constants.js"></script>
+<script src="../lab1.1-1.2/drawGraphic.js"></script>
+<script src="../lab1.1-1.2/generateValues.js"></script>
+<script src="./computationalValues.js"></script>
+<script src="../lab1.1-1.2/getWorkTime.js"></script>
+
+<script>
+    const timesCtx = timesCanvas.getContext('2d')
+    timesCanvas.width = cnvWidth
+    timesCanvas.height = cnvHeight * 2
+
+    const times = getWorkTime(howManyIterations, i => {
+        const allX = geterateValues(start_n *i, N, omega, topA, topFi)
+        const finalDataX = averageOfArrays(allX)
+        DiscretFourier(finalDataX)
+    })
+    console.log(times);
+    drawEmpty(timesCanvas, timesCtx, cnvHeight, start_n, 'n', 'O(n)', false)
+    drawer(timesCanvas, timesCtx, times)
+    drawMax(timesCanvas, timesCtx, times, 'red')
+</script>
