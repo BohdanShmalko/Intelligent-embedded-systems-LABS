@@ -18,7 +18,7 @@
     const times = getWorkTime(howManyIterations, i => {
         const allX = geterateValues(start_n *i, N, omega, topA, topFi)
         const finalDataX = averageOfArrays(allX)
-        FastFourier(finalDataX)
+        TableMethod(finalDataX)
     })
     console.log(times);
     drawEmpty(timesCanvas, timesCtx, cnvHeight, start_n, 'n', 'O(n)', false)

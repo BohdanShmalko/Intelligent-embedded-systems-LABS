@@ -1,17 +1,18 @@
 const DiscretFourier = x => {
     const N = x.length
     const result = []
-    const cache = [[1], [0]]
+    const table = []
     let Freal, Fimage
+	for (let i = 0; i < N/2; i++){
+		let arg = -2*Math.PI*i/N
+		table[i] = [Math.cos(arg), Math.sin(arg)]
+		table[i + N/2] = [-table[i][0], -table[i][1]]
+	}
     for(let p = 0; p < N; p++){
         Freal = 0, Fimage = 0
         for(let k = 0; k < N; k++){
-            if(!cache[0][p*k % N]){
-                cache[0][p*k % N] = Math.cos(2*Math.PI*p*k/N)
-                cache[1][p*k % N] = -Math.sin(2*Math.PI*p*k/N)
-            }
-            Freal += x[k] * cache[0][p*k % N]
-            Fimage += x[k] * cache[1][p*k % N]
+            Freal += x[k] * table[p*k % N][0]
+            Fimage += x[k] * table[p*k % N][1]
         }
         
         result.push(Math.sqrt(Freal**2 + Fimage**2))
@@ -43,3 +44,17 @@ const FastFourier = x => {
 }
 return result
 }
+
+// const demo = x => {
+    // const N = x.length
+    // const result = []
+    // let Fi
+    // for(let p = 0; p < N; p++){
+        // Fi = 0
+        // for(let k = 0; k < N; k++){
+            // Fi += x[k]*Math.cos(2*Math.PI*p*k/N) + x[k]*Math.sin(2*Math.PI*p*k/N)
+        // }
+        // result.push(Math.abs(Fi))
+    // }
+    // return result
+// }
