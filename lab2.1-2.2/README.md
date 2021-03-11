@@ -8,19 +8,19 @@
 <a name = "DFourier" ></a>
 ### Результат обчислення за допомогою Дискретного перетворення Фур'є
 
-![DFourier]()
+![DFourier](https://github.com/BohdanShmalko/Intelligent-embedded-systems-LABS/blob/main/lab2.1-2.2/images/DF.PNG?raw=true)
 
 
 <a name = "FFourier" ></a>
 ### Результат обчислення за допомогою Швидкого перетворення Фур'є
 
-![QFourier]()
+![QFourier](https://github.com/BohdanShmalko/Intelligent-embedded-systems-LABS/blob/main/lab2.1-2.2/images/FF.PNG?raw=true)
 
 
 <a name = "timeDF" ></a>
 ### O(n) для Дискретного перетворення Фур'є
 
-![timeDF]()
+![timeDF](https://github.com/BohdanShmalko/Intelligent-embedded-systems-LABS/blob/main/lab2.1-2.2/images/timeDF.PNG?raw=true)
 
 (n+1) * 10^3 | time (ms)
 --- | --- 
@@ -228,7 +228,7 @@
 <a name = "timeFF" ></a>
 ### O(n) для Швидкого перетворення Фур'є
 
-![timeQF]()
+![timeQF](https://github.com/BohdanShmalko/Intelligent-embedded-systems-LABS/blob/main/lab2.1-2.2/images/timeFF.PNG?raw=true)
 
 (n+1) * 10^3 | time (ms)
 --- | --- 
