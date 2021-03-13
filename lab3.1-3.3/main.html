@@ -1,0 +1,32 @@
+
+<div>
+    <b>Введіть число n : </b><input id="Nvalue" />
+    <button id = "calculate">Обчислити</button>
+</div>
+<div id="result"></div>
+
+<script>
+    calculate.onclick = () => {
+        let n = Number(Nvalue.value)
+        if (!n) {
+            result.innerHTML = "incorect input data"
+            return
+        }
+        if (n % 2 === 0) {
+            result.innerHTML = `first number = 2 and second number = ${n/2}`
+            return
+        }
+        let b, a = Math.ceil(Math.sqrt(n))
+        if (a ** 2 === n) {
+            result.innerHTML = `first number = ${a} and second number = ${a}`
+            return
+        }
+        while(true){
+            let tmp = a ** 2 - n;
+            b = Math.ceil(Math.sqrt(tmp))
+            if (b ** 2 === tmp) break
+            a++
+        }
+        result.innerHTML = `first number = ${a-b} and second number = ${a+b}`
+    }
+</script>
