@@ -10,6 +10,7 @@ export default function App() {
     //lab 3.1 data
     const [N, setN] = useState('')
     const [result31, setResult31] = useState('')
+    const [error, setError] = useState('')
 
     //lab 3.2 data
 
@@ -30,7 +31,8 @@ export default function App() {
     const [c, setC] = useState('')
     const [d, setD] = useState('')
     const [y, setY] = useState('')
-    const [result33, setResult33] = useState('')
+    const [Result33First, setResult33First] = useState('')
+    const [Result33Second, setResult33Second] = useState('')
 
     return (
         <View style={{padding: 40}}>
@@ -48,10 +50,11 @@ export default function App() {
                 </View>
                 <View style={{width: 100}}>
                     <Button title={'calculate'} onPress={() => {
-                        Ferma(N, setResult31)
+                        Ferma(N, setResult31, setError)
                     }}/>
                 </View>
                 <Text style={{textAlign: "center"}}>{result31}</Text>
+                <Text style={{textAlign: "center", color : 'red'}}>{error}</Text>
             </View>
 
             {/*lab 3.2*/}
@@ -158,10 +161,16 @@ export default function App() {
                 </View>
                 <View style={{width: 100}}>
                     <Button title={'calculate'} onPress={() => {
-                        Genetic(a, b, c, d, y, setResult33)
+                        Genetic(a, b, c, d, y, setResult33First, 50)
+                        Genetic(a, b, c, d, y, setResult33Second, 20)
                     }}/>
                 </View>
-                <Text style={{textAlign: "center"}}>{result33}</Text>
+                {!!Result33First && <View>
+                    <Text>Population = 50</Text>
+                    <Text style={{textAlign: "center"}}>{Result33First}</Text>
+                    <Text>Population = 20</Text>
+                    <Text style={{textAlign: "center"}}>{Result33Second}</Text>
+                </View>}
             </View>
         </View>
     );

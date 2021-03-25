@@ -15,7 +15,7 @@ type genType = {
 
 type populationType = Array<genType>
 
-const geneticAlgoritm = (a: number, b: number, c: number, d: number, y: number) => {
+const geneticAlgoritm = (a: number, b: number, c: number, d: number, y: number, populate : number) => {
     let result : resultType = {
         x1 : 0,
         x2 : 0,
@@ -23,8 +23,8 @@ const geneticAlgoritm = (a: number, b: number, c: number, d: number, y: number) 
         x4 : 0,
         time : 0
     }
-    const MAX_POPULATION = 300
-    const ITERATIONS = 200
+    const MAX_POPULATION = populate
+    const ITERATIONS = 100
     let population : populationType = []
 
 
@@ -145,7 +145,7 @@ const geneticAlgoritm = (a: number, b: number, c: number, d: number, y: number) 
     return result;
 }
 
-const Genetic = (rawA: string, rawB: string, rawC: string, rawD: string, rawY: string, setResult :  React.Dispatch<React.SetStateAction<string>>) => {
+const Genetic = (rawA: string, rawB: string, rawC: string, rawD: string, rawY: string, setResult :  React.Dispatch<React.SetStateAction<string>>, population : number) => {
     const a = Number(rawA),
         b = Number(rawB),
         c = Number(rawC),
@@ -156,7 +156,7 @@ const Genetic = (rawA: string, rawB: string, rawC: string, rawD: string, rawY: s
         return
     }
 
-    const res = geneticAlgoritm(a,b,c,d,y)
+    const res = geneticAlgoritm(a,b,c,d,y, population)
 
     if (res.fitness !== 0 && res.fitness){
         setResult(`not accurate result : x1 = ${res.x1}, x2 = ${res.x2}, x3 = ${res.x3}, x4 = ${res.x4}, time = ${res.time}ms, fitness = ${res.fitness}`)
