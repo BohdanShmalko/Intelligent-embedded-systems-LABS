@@ -3,8 +3,8 @@ const cnvWidth = 2000
 const cnvHeight = 2000
 
 //variant constantes
-const n = 12
-const N = 64
+const n = 16
+const N = 5 * 10**2
 const omega = 2700
 
 //my choose

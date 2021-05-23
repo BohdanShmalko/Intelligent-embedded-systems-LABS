@@ -1,0 +1,31 @@
+<script src="../lab1.1-1.2/constants.js"></script>
+<script src="../lab1.1-1.2/generateValues.js"></script>
+<script src="../lab1.1-1.2/computationalValues.js"></script>
+<script src="../lab2.1-2.2/computationalValues.js"></script>
+<script src="./drawer.js"></script>
+<script src="./basic.js"></script>
+<script src="./generateTasks.js"></script>
+<script src="./getColor.js"></script>
+
+<div>Вибір алгоритму :
+    <select name="select" id="algorithm">
+        <option value="FIFO" selected>FIFO</option>
+        <option value="RM">RM</option>
+        <option value="EDF">EDF</option>
+    </select></div>
+
+<button id="btnRes">calculate</button>
+<div id="res"></div>
+
+<script>
+    btnRes.onclick = () => {
+        const allDots = []
+        for(let i = 0; i < 100; i++){
+            const allTasks = generateTasks(i * 5)
+            const {time, statistic} = basic(allTasks, algorithm.value)
+            allDots.push([Math.floor(statistic.taskCount / time * 100) / 100, time])
+        }
+        console.log(draw(allDots))
+        res.innerHTML = "result in console"
+    }
+</script>

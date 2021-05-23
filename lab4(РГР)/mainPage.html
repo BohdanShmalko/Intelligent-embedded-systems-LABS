@@ -1,0 +1,157 @@
+<center>
+    <h1>Scheduling</h1>
+    <div>Вибір алгоритму :
+        <select name="select" id="algorithm">
+            <option value="FIFO" selected>FIFO</option>
+            <option value="RM">RM</option>
+            <option value="EDF">EDF</option>
+        </select></div>
+    <div>
+        <button id="addTask">Add task</button>
+    </div>
+    <table id="table">
+        <tr>
+            <th>Назва</th>
+            <th>Періодичність</th>
+            <th>Кількість повторів</th>
+            <th>Час старту</th>
+            <th>deadline</th>
+            <th>task variety</th>
+        </tr>
+        <tr>
+            <td><input class="name" value="Task1"/></td>
+            <td><input class="period" value="1"/></td>
+            <td><input class="repeat" value="1"/></td>
+            <td><input class="start" value="0"/></td>
+            <td><input class="deadline" value="100"/></td>
+            <td><select name="select" class="task">
+                <option value="correlation">random values, Fourier, correlation</option>
+                <option value="factorization">factorization of numbers</option>
+                <option value="neuron">neuron</option>
+            </select></td>
+        </tr>
+    </table>
+    <div>
+        <p id="errorField"></p>
+        <button id="calculate">Calculate</button>
+    </div>
+
+    <canvas id='SchedulingCanv'></canvas>
+</center>
+
+<script src="./getColor.js"></script>
+<script src="./drawScheduling.js"></script>
+<script src="../lab1.1-1.2/constants.js"></script>
+<script src="../lab1.1-1.2/generateValues.js"></script>
+<script src="../lab1.1-1.2/computationalValues.js"></script>
+<script src="../lab2.1-2.2/computationalValues.js"></script>
+<script src="./neuron.js"></script>
+<script src="./ferma.js"></script>
+<script src="./basic.js"></script>
+
+<script>
+    const SchedulingCtx = SchedulingCanv.getContext('2d')
+
+    addTask.onclick = () => {
+        const names = document.getElementsByClassName("name");
+        const tr = document.createElement("tr");
+
+        const tdName = document.createElement("td");
+        const inputName = document.createElement("input");
+        inputName.className = "name"
+        inputName.value = "Task" + (names.length + 1)
+
+        const tdPeriod = document.createElement("td");
+        const inputPeriod = document.createElement("input");
+        inputPeriod.className = "period"
+        inputPeriod.value = "1"
+
+        const tdRepeat = document.createElement("td");
+        const inputRepeat = document.createElement("input");
+        inputRepeat.className = "repeat"
+        inputRepeat.value = "1"
+
+        const tdStart = document.createElement("td");
+        const inputStart = document.createElement("input");
+        inputStart.className = "start"
+        inputStart.value = "0"
+
+        const tdDeadline = document.createElement("td");
+        const inputDeadline = document.createElement("input");
+        inputDeadline.className = "deadline"
+        inputDeadline.value = "100"
+
+        const tdTask = document.createElement("td");
+        const select = document.createElement("select");
+        select.setAttribute("name", "select");
+        select.className = "task"
+        const optionCorrelation = document.createElement("option");
+        optionCorrelation.value = "correlation"
+        optionCorrelation.innerHTML = "random values, Fourier, correlation"
+        const optionFactorization = document.createElement("option");
+        optionFactorization.value = "factorization"
+        optionFactorization.innerHTML = "factorization of numbers"
+        const optionNeuron = document.createElement("option");
+        optionNeuron.value = "neuron"
+        optionNeuron.innerHTML = "neuron"
+
+        select.appendChild(optionCorrelation)
+        select.appendChild(optionFactorization)
+        select.appendChild(optionNeuron)
+
+
+        tdName.appendChild(inputName)
+        tdPeriod.appendChild(inputPeriod)
+        tdRepeat.appendChild(inputRepeat)
+        tdStart.appendChild(inputStart)
+        tdDeadline.appendChild(inputDeadline)
+        tdTask.appendChild(select)
+
+        tr.appendChild(tdName)
+        tr.appendChild(tdPeriod)
+        tr.appendChild(tdRepeat)
+        tr.appendChild(tdStart)
+        tr.appendChild(tdDeadline)
+        tr.appendChild(tdTask)
+
+        table.appendChild(tr)
+    }
+
+    calculate.onclick = () => {
+        const names = document.getElementsByClassName("name");
+        const periods = document.getElementsByClassName("period");
+        const repeates = document.getElementsByClassName("repeat");
+        const starts = document.getElementsByClassName("start");
+        const deadlines = document.getElementsByClassName("deadline");
+        const tasks = document.getElementsByClassName("task");
+
+        const allTasks = []
+        for (let i = 0; i < names.length; i++) {
+            const name = names[i].value
+            const period = Number(periods[i].value)
+            const repeat = Number(repeates[i].value)
+            const start = Number(starts[i].value)
+            const deadline = Number(deadlines[i].value)
+            const task = tasks[i].value
+            if (isNaN(start) || isNaN(deadline) || isNaN(period) || isNaN(repeat)) {
+                errorField.innerHTML = "Error : entered data in table is not a number!!!"
+                return
+            }
+            for (let j = 0; j < repeat; j++) {
+                allTasks.push({name, start: start + period * j, deadline: deadline + period * j, task, period})
+            }
+        }
+
+        errorField.innerHTML = ""
+
+        const {result, time, statistic} = basic(allTasks, algorithm.value)
+
+        SchedulingCanv.width = 25 * time
+        SchedulingCanv.height = 80 * (names.length + 1)
+
+
+        scheduling(SchedulingCanv, SchedulingCtx, result, statistic, time)
+    }
+
+
+</script>
