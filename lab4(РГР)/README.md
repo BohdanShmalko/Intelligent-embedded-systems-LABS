@@ -50,7 +50,7 @@
 
 Напрям підготовки 121 «Інженерія програмного забезпечення»
 
-<a name = "result" ></a>
+<a name = "tasks" ></a>
 
 <p align="center"><b>З А В Д А Н Н Я</b></p>
 
@@ -267,25 +267,25 @@ context, result, statistic, time), яка приймає в якості пар�
 Графік залежності середнього часу очікування від інтенсивності вхідного
 потоку заявок
 
-![time(lambda)]()
+![time(lambda)](https://github.com/BohdanShmalko/Intelligent-embedded-systems-LABS/blob/main/lab4(%D0%A0%D0%93%D0%A0)/img/time(lambda).png?raw=true)
 
 Графік відмов вхідних заявок у відсотках залежно від інтенсивності вхідного
 потоку заявок
 
-![fail(lambda)]()
+![fail(lambda)](https://user-images.githubusercontent.com/43091830/119269313-bdc83000-bbff-11eb-886c-b3379b56492c.png)
 
 Графік залежності проценту простою ресурсу від інтенсивності вхідного
 потоку заявок
 
-![idle(lambda)]()
+![idle(lambda)](https://github.com/BohdanShmalko/Intelligent-embedded-systems-LABS/blob/main/lab4(%D0%A0%D0%93%D0%A0)/img/idle(lambda).png?raw=true)
 
 Результати виконання планувальників для різних алгоритмів (mainPage.html)
 
-![FIFO]()
+![FIFO](https://github.com/BohdanShmalko/Intelligent-embedded-systems-LABS/blob/main/lab4(%D0%A0%D0%93%D0%A0)/img/scheduling(FIFO).png?raw=true)
 
-![EDF]()
+![EDF](https://github.com/BohdanShmalko/Intelligent-embedded-systems-LABS/blob/main/lab4(%D0%A0%D0%93%D0%A0)/img/scheduling(EDF).png?raw=true)
 
-![RM]()
+![RM](https://github.com/BohdanShmalko/Intelligent-embedded-systems-LABS/blob/main/lab4(%D0%A0%D0%93%D0%A0)/img/scheduling(RM).png?raw=true)
 
 ---------------------
 
