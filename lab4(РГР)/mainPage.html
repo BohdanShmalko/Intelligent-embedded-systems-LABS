@@ -6,12 +6,19 @@
             <option value="RM">RM</option>
             <option value="EDF">EDF</option>
         </select></div>
+    <div>Вибір кількості процесорів :
+        <select name="select" id="proc">
+            <option value="1" selected>1</option>
+            <option value="2">2</option>
+        </select></div>
     <div>
+
         <button id="addTask">Add task</button>
     </div>
     <table id="table">
         <tr>
             <th>Назва</th>
+            <th>Захищена</th>
             <th>Періодичність</th>
             <th>Кількість повторів</th>
             <th>Час старту</th>
@@ -20,6 +27,7 @@
         </tr>
         <tr>
             <td><input class="name" value="Task1"/></td>
+            <td><input type="checkbox" class="secureCheck"></td>
             <td><input class="period" value="1"/></td>
             <td><input class="repeat" value="1"/></td>
             <td><input class="start" value="0"/></td>
@@ -55,6 +63,11 @@
     addTask.onclick = () => {
         const names = document.getElementsByClassName("name");
         const tr = document.createElement("tr");
+
+        const tdSecure = document.createElement("td");
+        const inputSecure = document.createElement("input");
+        inputSecure.type = "checkbox"
+        inputSecure.className = "secureCheck"
 
         const tdName = document.createElement("td");
         const inputName = document.createElement("input");
@@ -101,6 +114,7 @@
 
 
         tdName.appendChild(inputName)
+        tdSecure.appendChild(inputSecure)
         tdPeriod.appendChild(inputPeriod)
         tdRepeat.appendChild(inputRepeat)
         tdStart.appendChild(inputStart)
@@ -108,6 +122,7 @@
         tdTask.appendChild(select)
 
         tr.appendChild(tdName)
+        tr.appendChild(tdSecure)
         tr.appendChild(tdPeriod)
         tr.appendChild(tdRepeat)
         tr.appendChild(tdStart)
@@ -144,7 +159,7 @@
 
         errorField.innerHTML = ""
 
-        const {result, time, statistic} = basic(allTasks, algorithm.value)
+        const {result, time, statistic} = basic(allTasks, algorithm.value, Number(proc))
 
         SchedulingCanv.width = 25 * time
         SchedulingCanv.height = 80 * (names.length + 1)

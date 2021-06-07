@@ -22,7 +22,7 @@ const findName = (all, name, period, data) => {
     }
 }
 
-const basic = (tasks, algorithm) => {
+const basic = (tasks, algorithm, proc = 1) => {
     const result = []
     const statistic = {taskCount: 0, failCount: 0, idle: []}
     const tasksTurn = []
