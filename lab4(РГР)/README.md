@@ -244,9 +244,9 @@ FIFO — перший прийшов перший вийшов — є загал
 
 ![RM](https://github.com/BohdanShmalko/Intelligent-embedded-systems-LABS/blob/main/lab4(%D0%A0%D0%93%D0%A0)/img/scheduling(RM).png?raw=true)
 
-![proc1]()
+![proc1](https://github.com/BohdanShmalko/Intelligent-embedded-systems-LABS/blob/main/lab4(%D0%A0%D0%93%D0%A0)/img/proc1.png?raw=true)
 
-![proc2]()
+![proc2](https://github.com/BohdanShmalko/Intelligent-embedded-systems-LABS/blob/main/lab4(%D0%A0%D0%93%D0%A0)/img/proc2.png?raw=true)
 
 ---------------------
 
